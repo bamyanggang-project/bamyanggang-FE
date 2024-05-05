@@ -1,50 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import './MyPage.css';
 
 const MyPage = () => {
-
-    const location = useLocation();
-    const userId = location.state.key;
     const navigate = useNavigate();
+    const userData = JSON.parse(localStorage.getItem('user')); // 사용자 정보를 로컬 스토리지에서 가져옴
 
-    console.log(userId);
-
-    // const [userId, setUserId] = useState({})
-    const [userData, setUserData] = useState({
-        userId: '',
-        userPw: '',
-        userNm: '',
-        userNicknm: '',
-        userTel1: '',
-        userTel2: '',
-        userTel3: '',
-        userEmail1: '',
-        userEmail2: '',
-        userBirth: '',
-        userGender: ''
-    });
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                // 모든 사용자 데이터 불러오기 (예시로 첫 번째 사용자 데이터 사용)
-                const response = await axios.get(`http://localhost:3001/member?userId=${userId}`);
-                if (response.data && response.data.length > 0) {
-                    setUserData(response.data[0]);  // 첫 번째 사용자 데이터를 state에 저장
-                    console.error('사용자 데이터가 있습니다.');
-                } else {
-                    console.error('사용자 데이터가 없습니다.');
-                }
-            } catch (error) {
-                console.error('회원 데이터를 불러오는 데 실패했습니다.', error);
-            }
-        };
-
-        fetchUserData(); // 함수를 호출하여 데이터를 가져옴
-    }, []); // 빈 의존성 배열을 사용하여 컴포넌트 마운트 시 한 번만 실행
+    const handleDelete = () => {
+        // 사용자에게 회원탈퇴를 다시 한번 확인받음
+        if (window.confirm('정말로 회원탈퇴 하시겠습니까?')) {
+            navigate('/memberDelete');  // 사용자가 확인을 누르면 MemberDelete 페이지로 이동
+        }
+    };
 
     return (
         <div>
@@ -58,9 +25,8 @@ const MyPage = () => {
                 <p>생년월일: {userData.userBirth}</p>
                 <p>성별: {userData.userGender}</p>
             </div>
-            <button type="button" onClick={() => navigate('/MemberModify')}>회원수정</button>
-            <button onClick={() => alert('회원탈퇴 되었습니다')}>회원탈퇴</button>
-
+            <button type="button" onClick={() => navigate(`/memberModify/${userData.userId}`)}>회원수정</button>
+            <button onClick={handleDelete}>회원탈퇴</button>
         </div>
     );
 };

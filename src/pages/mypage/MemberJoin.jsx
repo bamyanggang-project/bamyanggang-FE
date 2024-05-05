@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './MemberJoin.css';
-import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위해 사용
+import { useNavigate } from 'react-router-dom';
 
 const MemberJoin = () => {
-    const [userId, setUserId] = useState('')
     const [formData, setFormData] = useState({
         userId: '',
         userPw: '',
@@ -16,11 +15,11 @@ const MemberJoin = () => {
         userEmail1: '',
         userEmail2: '',
         userBirth: '',
-        userGender: 'Male'  // 기본값 설정
+        userGender: 'Male'
     });
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState({});
-    const navigate = useNavigate(); // 페이지 이동을 위한 훅 사용
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,9 +27,6 @@ const MemberJoin = () => {
             ...prev,
             [name]: value
         }));
-        
-        setUserId(e.target.value);
-
         if (errors[name]) {
             setErrors(prev => ({ ...prev, [name]: null }));
         }
@@ -44,24 +40,21 @@ const MemberJoin = () => {
     };
 
     const checkDuplicate = async (field) => {
-        alert(field);
         if (!formData[field]) {
             setErrors(prev => ({ ...prev, [field]: '중복확인을 위해서 빈칸으로 둘 수 없습니다' }));
             return;
         }
         setChecking(prev => ({ ...prev, [field]: true }));
         try {
-            const response = await axios.post('http://localhost:3001/member', {
-                field: field,
-                value: formData[field]
-            });
-            if (response.data.isDuplicate) {
-                setErrors(prev => ({ ...prev, [field]: `${field} 다른 사용자가 사용중입니다.` }));
+            const response = await axios.get(`http://localhost:3001/member?${field}=${formData[field]}`);
+            if (response.data.length > 0) {
+                setErrors(prev => ({ ...prev, [field]: `다른 사용자가 사용 중입니다.` }));
             } else {
-                setErrors(prev => ({ ...prev, [field]: null }));
+                setErrors(prev => ({ ...prev, [field]: `사용 가능합니다.` }));
             }
         } catch (error) {
-            setErrors(prev => ({ ...prev, [field]: '실패하였습니다 다시 시도해주세요' }));
+            console.error(`${field} 중복 확인 중 에러 발생:`, error);
+            setErrors(prev => ({ ...prev, [field]: '중복 확인 중 문제가 발생했습니다.' }));
         } finally {
             setChecking(prev => ({ ...prev, [field]: false }));
         }
@@ -71,8 +64,6 @@ const MemberJoin = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/member', formData);
-            console.log (response.data)
-            console.log (response.status)
             if (response.status === 201) {
                 alert('회원가입 성공');
                 navigate('/login'); // 로그인 페이지로 이동
@@ -89,7 +80,7 @@ const MemberJoin = () => {
             <h1>회원가입</h1>
             <div className="userContainer">
                 <input type="text" name="userId" value={formData.userId} onChange={handleChange} placeholder="아이디" />
-                <button  type="button" onClick={() => checkDuplicate({userId})} disabled={checking.userId}>중복확인</button>
+                <button onClick={() => checkDuplicate('userId')} disabled={checking.userId}>중복확인</button>
                 {errors.userId && <p className="error-message">{errors.userId}</p>}
                 <input type="password" name="userPw" value={formData.userPw} onChange={handleChange} placeholder="비밀번호" />
                 {errors.userPw && <p className="error-message">{errors.userPw}</p>}
