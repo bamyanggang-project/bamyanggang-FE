@@ -32,7 +32,8 @@ const navigate = useNavigate();
   //ID 유효성 검사 
   const handleCheckIdAvailability = async () => {
     try {
-      const response = await axios.post('/checkIdAvailability/idCheck', userId); 
+
+      const response = await axios.post('/api/checkIdAvailability/idCheck', userId); 
       
 
       console.log('응답 값:', response.data);
@@ -56,7 +57,7 @@ const navigate = useNavigate();
   //nickname 유효성 검사.
   const handleCheckNickNameAvailability = async () => {
     try {
-      const response = await axios.post('/checkIdAvailability/nickNameCheck', nickName); 
+      const response = await axios.get(`/api/checkIdAvailability/nickNameCheck/${nickName}` ); 
 
     console.log('응답 값:', response.data);
     setIsNickNameAvailable(response.data);
@@ -70,6 +71,7 @@ const navigate = useNavigate();
   const handlePasswordChange = event => {
     setPassword(event.target.value);
   };
+
 
   //프로필 이미지
   const handleProfileImageChange = event => {
@@ -142,8 +144,11 @@ const navigate = useNavigate();
     };
 
     try {
-      const response1 = await axios.post('/addmember', userInfo, {
+
+      const response1 = await axios.post('/api/addmember', userInfo, {
         
+
+
         headers: {
           'Content-Type': 'application/json'
         }
@@ -156,7 +161,7 @@ const navigate = useNavigate();
         const formData = new FormData();
         formData.append('profileImage', profileImage);
 
-        const response2 = await axios.post('/addmember/image', formData);
+        const response2 = await axios.post('/api/addmember/image', formData);
 
         if (response1.status === 200 && response2.status === 200) {
           const data1 = response1.data;
