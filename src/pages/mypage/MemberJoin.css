@@ -1,160 +1,217 @@
-.totalcontainer {
-    border: 1px solid black;
+.totalContainer{
     width: 542px; 
     margin: 0 auto; 
     padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; 
 }
 
-.join-title {
+.mainBanner{
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+.joinTitle{
+    text-align: center;
+}
+.container{
+    width: 500px; 
+    margin: 0 auto; 
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
-.btn, select, .login, .login4 {
-    width: 100%; 
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    height: 38px;
+.topArea{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    margin-bottom: 20px; 
+}
+.inputBox{
+    width: 100%;
+    height: 40px;
+    background-color: transparent; 
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 20px;
 }
 
-.login ::placeholder {
+.inputBox::placeholder{
     text-align: left;
 }
 
-.phone-group, .email-group {
+
+.idBox{
+    display: flex;
+    align-items: center;
+}
+
+.idCheck{
+    padding: 10px;
+    font-size: 14px;
+}
+.idCheckBtn, .nickNameCheckBtn{
+    width: 80px;
+    height: 40px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.idCheckBtn:hover, .nickNameCheckBtn:hover {
+    background-color: rgba(51, 51, 51, 0.9);
+}
+/* background-color: rgba(51, 51, 51, 0.9); */
+
+.nickNameBox{
+    display: flex;
+    align-items: center;
+}
+
+.btnArea{
+    padding-right: 10px;
+}
+
+.middleArea{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.phoneFirstInputBox{
+    width: 28%;
+    height: 40px;
+    background-color: transparent; 
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.phoneFirstInputBox::placeholder{
+    text-align: left;
+    padding-left: 10px;
+}
+.phoneInputBox{
+    width: 28%;
+    height: 40px;
+    background-color: transparent; 
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.emailInputBox{
+    width: 20%;
+    height: 40px;
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+    background-color: transparent;
+}
+
+.emailInputBox::placeholder{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.emailArea{
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
 }
 
-.login1, .login2, .login3 {
-    height: 38px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    width: 140px;
+.domainSelect{
+    width: 40%;
+    height: 40px;
+    margin-right: 50px;
 }
 
-
-.email-input {
-    flex-grow: 1;
-    margin-right: 10px; 
+.domainBox{
+    width: 40%;
+    height: 40px;
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.email-domain {
-    width: 200px;
+.genderArea {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 50px;
 }
 
-.login5 {
-    width: 50px;
-    height: 23px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.btn {
-    background-color: #6E98B8;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.maleBox, .femaleBox{
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
 }
 
-.btn:hover {
-    background-color: #3C627F;
-}
-
-.check-button {
-    padding: 10px 15px;
-    background-color: #008CBA;
-    color: white;
-    border: none;
+.genderButton {
+    margin-right: 87px;
     cursor: pointer;
-    margin-left: 10px;
-}
-
-.status-message, .error-message {
-    color: red;
-    margin-top: 5px;
-    text-align: center;
-}
-
-.error-message {
-    color: #ff0000;
-    font-size: 0.85em;
-}
-
-.status-message {
-    font-size: 0.85em;
-    color: green;
-}
-
-.profile-image {
-    height: 76px; 
-}
-
-.p-container { 
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.login-return {
-    text-align: center;
-    width: 100%; 
-}
-.login4 {
-    height: 50px;
-
-}
-
-select {
-    width: 210px;
-}
-
-.login5 {
-    width: 210px;
-    height: 38px;
-}
-.signup-title {
-    text-align: center; 
-}
-.totalcontainer p {
-    margin: 5px 0;
-}
-.login, .login1, .login2, .login3, .login4, .login5 {
-    background-color: white;
-    border: 1px solid black; 
-}
-
-.gender-select {
-    margin: 0;
-    width: 210px;
-}
-
-.login6 {
-    width: 200px;
-    margin-left: 7.5px;
-    height: 38px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    border-radius: 4px;
+    width: 245px; 
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.genderButton:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+.genderButton.active {
+    background-color: #333;
+    color: #fff;
+  }
+
+.genderType {
+    display: none;
 }
 
+.profileArea{
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-left: 10px;
+    font-size: 14px;
+}
 
-.btn1 {
-    width: 100px;
-    background-color: #6E98B8;
-    color: white;
-    padding: 10px 15px;
+.profileTitle{
+    padding-left: 10px;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.profileInputBox{
+    width: 100%;
+    height: 40px;
+    background-color: transparent; 
+    font-size: 14px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.submitBtnArea{
+    text-align: center;
+}
+
+.submitBtn{
+    width: 500px;
+    height: 40px;
+    margin-right: 10px;
+    background-color: #333;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.submitBtn:hover{
+    background-color: rgba(51, 51, 51, 0.9);
+    cursor: pointer;
 }
