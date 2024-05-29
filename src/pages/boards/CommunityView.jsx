@@ -51,7 +51,6 @@ function CommunityView(){
 
         }, [postNo]);
 
-        console.log("prev", prevPostNo);
     useEffect(()=>{
                    //이전글 데이터 받기
             axios.get(`/api/community/communitycontent/${prevPostNo}`)
@@ -133,7 +132,6 @@ function CommunityView(){
         })
     },[navigate, postNo]);
 
-    console.log("로그인?",isPluggedIn);
     return(
         <div>
             <Header />
