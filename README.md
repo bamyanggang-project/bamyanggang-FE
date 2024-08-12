@@ -6,6 +6,10 @@
   <img src="https://github.com/bamyanggang-project/bamyanggang-BE/assets/151708233/742e773e-2a98-44e6-9d78-0528f8ebf3f3">
 </p>
 
+# 화면구현 UI
+![가이드2](https://github.com/user-attachments/assets/7d4f7e18-b34a-46c0-9a7a-c53f27cc3ca2)
+
+
 # 1. 프로젝트 소개
 - 화상채팅을 이용한 마피아 게임 구현
 - Websoket으로 실시간 채팅 구현.
