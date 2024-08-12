@@ -7,7 +7,10 @@
 </p>
 
 # 화면구현 UI
-![가이드2](https://github.com/user-attachments/assets/7d4f7e18-b34a-46c0-9a7a-c53f27cc3ca2)
+![가이드2](https://github.com/user-attachments/assets/7d4f7e18-b34a-46c0-9a7a-c53f27cc3ca2) - 가이드
+![방대기화면](https://github.com/user-attachments/assets/2184d458-bd3f-4610-83ef-28d6905d20a7) - 대기화면
+![방목록테스트전](https://github.com/user-attachments/assets/d4908a6b-cfe8-45e7-b546-fd20cddd43d2) - 방목록테스트
+![투표](https://github.com/user-attachments/assets/291afa24-f47b-454c-bd3e-e13644042456) - 투표
 
 
 # 1. 프로젝트 소개
